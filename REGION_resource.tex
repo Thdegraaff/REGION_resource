@@ -1,8 +1,10 @@
 % Created 2015-06-24 Wed 16:14
-\documentclass[scrartcl,a4paper,utopia,10pt]{article}
+\documentclass[11pt, a4paper]{article}
+%\documentclass[scrartcl,a4paper,utopia,10pt]{article}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{fixltx2e}
+\usepackage{natbib}
 \usepackage{graphicx}
 \usepackage{longtable}
 \usepackage{float}
@@ -15,11 +17,24 @@
 \usepackage{amssymb}
 \usepackage{hyperref}
 \tolerance=1000
-\usepackage{microtype, fullpage}
-\providecommand{\alert}[1]{\textbf{#1}}
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+\usepackage{fullpage}
+%\usepackage{microtype, fullpage}
+%\providecommand{\alert}[1]{\textbf{#1}}
 
 \title{WooW-II: Workshop on open Workflows}
-\author{Daniel Arribas-Bel, Thomas de Graaff\thanks{d.arribas-bel@bham.ac.uk,t.de.graaff@vu.nl}}
+\author{Daniel
+Arribas-Bel\footnote{\href{mailto:D.Arribas-Bel@bham.ac.uk}{D.Arribas-Bel@bham.ac.uk}
+School of Geography, Earth and Environmental Sciences, University of
+Birmingham (UK).}
+\and 
+Thomas de Graaff
+\footnote{\href{mailto:t.de.graaff@vu.nl}{t.de.graaff@vu.nl}
+Department of Spatial Economics, VU University, Amsterdam (Netherlands).}}
 \date{\today}
 \hypersetup{
   pdfkeywords={},
@@ -30,22 +45,25 @@
 
 \maketitle
 
+\begin{abstract}
 This resource describes WooW-II, a two-day workshop on open workflows for
 quantitative social scientists. The workshop is broken down in five main
-parts, where each part typically consists of an introductionary tutorial and a
+parts, where each of them typically consists of an introductionary tutorial and a
 hands-on assignment. The specific tools discussed in this workshop are
 \texttt{Markdown}, \texttt{Pandoc}, \texttt{Git}, \texttt{Github}, \texttt{R},
 and \texttt{Rstudio}, but the theoretical approach applies to a wider range of
-tools (including \LaTeX \, and \texttt{Python}). At the end of the workshop,
+tools (e.g. \LaTeX \, and \texttt{Python}). By the end of the workshop,
 participants should be able to reproduce a paper of their own and make it
 available in an open form applying the concepts and tools introduced.
+\end{abstract}
 
 \section{Background}
 \label{sec-1}
 
 As in most social sciences, virtually no training is provided in regional
 science on workflow design and choice of appropriate tools, especially not
-from the viewpoint of \emph{open science}. Students and young researchers
+from the viewpoint of \emph{open science} \citep{healy2011choosing,
+arribas2014}. Students and young researchers
 typically receive no guidance as to why or how they should adopt habits that
 favor the open science principles in their research activity. This is
 unfortunate, because learning and adopting new tools and workflows require a
@@ -53,7 +71,8 @@ large time investment, which will only pay-off in the long run. The best time
 to do this is early in the career when one still has (some) time available.
 Therefore, this workshop is specifically aimed at young researchers and covers
 the main ideas behind a well-designed workflow with openness, transparency and
-reproducibility in mind, and provides an introductory, hands-on, overview of a
+reproducibility in mind. At the same time, the content provides an
+introductory, hands-on, overview of a
 set of free tools that have been designed with such values in
 mind.\footnote{The creation workshop is generously sponsored by the European
 Union's Seventh Framework Programme ``Foster''.
@@ -61,16 +80,20 @@ Union's Seventh Framework Programme ``Foster''.
 
 We do not get into every detail of each tool. Instead, we aim to give a gentle
 introduction, to provide further material and to place them in the appropriate
-context. Specific emphasis will be put on how certain tools contribute to
-building a coherent open workflow and how they relate to other tools. The main
-areas we will review are: mark-up languages such as \texttt{Markdown},
+context. Specific emphasis is set on how certain tools contribute to
+building a coherent open workflow and how they relate to each other. The main
+areas reviewed are: mark-up languages such as \texttt{Markdown};
 reference managers, particularly those open and free such as \texttt{Bibtex}
-which are compatible with \LaTeX \, conversion tools such as \texttt{Pandoc},
+which are compatible with \LaTeX; conversion tools such as \texttt{Pandoc};
 open environments for statistical computing such as \texttt{R} or
-\texttt{Python}, version control systems such as \texttt{Git} and back-up
-solutions on open repositories such as \texttt{GitHhub}. At the end of the
+\texttt{Python}; version control systems such as \texttt{Git}; and online
+hosting on open repositories such as \texttt{GitHub}. At the end of the
 workshop, participants should be able to reproduce a paper of their own and
 make it available in an open form applying the concepts and tools introduced.
+Materials are organized in a website that is openly hosted on GitHub and
+licensed using Creative Commons so access, remix and redistribution are
+permitted.
+
 \section{Description of the resource}
 \label{sec-2}
 
@@ -83,17 +106,18 @@ research in social science. The second, longer, part of the workshop includes
 four sessions with hands-on overviews of specific tools that have been
 designed with open science principles in mind and that hence provide the
 ingredients of a well-thought open workflow. This is delivered alternating
-presentation time with demo time, allowing participants to get a real taste of
+presentation time with hands-on practice, allowing participants to get a real taste of
 what using the tools implies and experience their advantages. 
-
+%
 The five sessions are presented as follows:
+
 \begin{enumerate}
 \item In this 3h. session we introduce the concepts of workflow, openness and
-    reproducability. In the first part, We argue why they are important and
+    reproducibility. In the first part, We argue why they are important and
     what as social scientists we can learn from data scientists. Our main
     argument is that, even though in the social sciences complete
-    reproducability is often infeasible, we should strive for research to
-    become \emph{as reproducable} as possible.
+    reproducibility is often infeasible, we should strive for research to
+    become \emph{as reproducible} as possible.
 \item In this 2h. session we introduce the concepts of version control and
     automation of tasks. The first relates to keeping track of changes as they
     occur throughout the proccess, while the second one allows us to break up
@@ -115,10 +139,9 @@ The five sessions are presented as follows:
     statistical platform in combination with \texttt{RStudio} for two main
     reasons: (\emph{i}) it works the best \textbf{out of the box} for
     \emph{our} purposes and (\emph{ii}) at the moment most researchers
-    probably work with this combination for reproducability (at least it gets
-    the biggest buzz\ldots{}).
+    probably work with this combination for reproducibility.
 \item In this final 1.5h session we introduce how one could make your
-    reproducable research open. This basically means making use of
+    reproducible research open. This basically means making use of
     repositories such as \texttt{Github}, which not only serves as a backup
     repository, but as well as a way of collaboration with known and unknown
     authors. Further, we show that making slides in \texttt{RStudio} is a
@@ -132,5 +155,11 @@ The five sessions are presented as follows:
 \item Website: \href{http://darribas.org/WooWii/}{http://darribas.org/WooWii/}
 \item Materials: \href{https://github.com/darribas/WooWii}{https://github.com/darribas/WooWii}
 \end{itemize}
+
+%\bibliographystyle{kluwer}
+\bibliographystyle{apalike}
+\bibliography{refs}
+
+
 
 \end{document}
